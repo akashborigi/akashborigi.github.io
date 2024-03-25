@@ -35,16 +35,18 @@
 			  cursor: pointer;
 			  border-radius: 5px;
 			}
-		  
+			
 			/* Dropdown content */
 			.dropdown-content {
 			  display: None;
 			  position: absolute;
 			  background-color: #ffffff;
-			  min-width: 250px;
+			  width: auto; /* Adjust min-width based on button size */
+			  min-width: 300px;
 			  box-shadow: 0px 8px 16px 0px rgba(154, 77, 155, 0.766);
 			  z-index: 1;
 			}
+
 		  
 			/* Dropdown content links */
 			.dropdown-content div {
@@ -124,6 +126,7 @@
 												<td class="align-center">Data Science</td>
 												<td class="align-center">Machine Learning</td>
 												<td class="align-center">Data Analysis</td>
+												<td class="align-center">Data Mining</td>
 												<td class="align-center">Deep Learning</td>
 											</tr>
 										</tbody>
@@ -140,8 +143,8 @@
 										<!--<span class="icon solid major style1 fa-code"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="dropbtn"><h3>Programming Languages</h3></div>
-													<div class="dropdown-content">
+												<div class="button">Programming Languages</div>
+												<div class="dropdown-content">
 													<div href="#">
 													<img src="images/logos/python.jpeg">
 													<div style="text-align: center;">Python</div>
@@ -167,7 +170,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="dropbtn"><h3>Data Handling Libraries</h3></div>
+												<div class="button">Data Handling Libraries</div>
 												<div class="dropdown-content">
 												  <div href="#">
 													<img src="images/logos/numpy.png">
@@ -206,7 +209,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="dropbtn"><h3>Big Data Technologies</h3></div>
+												<div class="button">Big Data Technologies</div>
 												<div class="dropdown-content">
 													<div href="#">
 														<img src="images/logos/mongoDB.png">
@@ -249,7 +252,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="dropbtn"><h3>Statistical Techniques</h3></div>
+												<div class="button">Statistical Techniques</div>
 												<div class="dropdown-content">
 												  <div href="#">
 													<!--<img src="/Users/akashborigi/Downloads/Resume/akashborigi/images/logos/Python_logo_PNG1.png" alt="Python Logo"> -->Decision Tree
@@ -281,7 +284,7 @@
 										<!--<span class="icon solid major style1 fa-code"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="dropbtn"><h3>Analysis & visualization</h3></div>
+												<div class="button">Analysis & visualization</div>
 													<div class="dropdown-content">
 													<div href="#">
 													<img src="images/logos/tableau.jpeg">
@@ -308,7 +311,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="dropbtn"><h3>Domain Knowledge</h3></div>
+												<div class="button">Domain Knowledge</div>
 												<div class="dropdown-content">
 												  <div href="#">
 													<!--<img src="/Users/akashborigi/Downloads/Resume/akashborigi/images/logos/Python_logo_PNG1.png" alt="Python Logo"> -->Drug Discovery
