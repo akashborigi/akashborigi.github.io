@@ -21,10 +21,10 @@
 			    position: relative;
 			    display: inline-block;
 			    margin-right: 20px;
-			}
+			  }
 			
-			/* Dropdown button */
-			.dropbtn {
+			  /* Dropdown button */
+			  .dropbtn {
 			    background-color: #efa8b0;
 			    color: white;
 			    padding: 10px 20px;
@@ -33,49 +33,58 @@
 			    border: none;
 			    cursor: pointer;
 			    border-radius: 5px;
-			}
+			  }
 			
-			/* Dropdown content */
-			.dropdown-content {
+			  /* Dropdown content */
+			  .dropdown-content {
 			    display: none;
-			    position: relative;
+			    position: absolute;
 			    background-color: #ffffff;
 			    width: auto; /* Adjust min-width based on button size */
 			    box-shadow: 0px 8px 16px 0px rgba(154, 77, 155, 0.766);
 			    z-index: 1;
-			}
+			  }
 			
-			/* Dropdown content links */
-			.dropdown-content div {
+			  /* Dropdown content links */
+			  .dropdown-content div {
 			    padding: 10px;
 			    text-align: center;
 			    border-bottom: 1px solid #ddd;
-			}
+			  }
 			
-			.dropdown-content div:last-child {
+			  .dropdown-content div:last-child {
 			    border-bottom: none;
-			}
+			  }
 			
-			/* Image style */
-			.dropdown-content img {
+			  /* Image style */
+			  .dropdown-content img {
 			    width: 60px;
 			    height: 60px;
 			    border-radius: 10%;
-			}
+			  }
 			
-			/* Show dropdown content on hover and focus */
-			.dropdown:hover .dropdown-content,
-			.dropdown:focus-within .dropdown-content {
+			  /* Show dropdown content on hover and focus */
+			  .dropdown:hover .dropdown-content,
+			  .dropdown:focus-within .dropdown-content {
 			    display: block;
-			}
+			  }
 			
-			/* Media queries for responsiveness */
-			@media only screen and (max-width: 768px) {
+			  /* Media queries for responsiveness */
+			  @media only screen and (max-width: 768px) {
 			    .dropdown-content {
-			        width: auto; /* Adjust width for mobile */
-			        min-width: unset; /* Reset min-width */
+			      width: auto; /* Adjust width for mobile */
+			      min-width: unset; /* Reset min-width */
+			      display: none; /* Hide dropdown content by default */
 			    }
-			}
+			
+			    .dropdown:hover .dropdown-content {
+			      display: none; /* Hide dropdown content on hover for mobile */
+			    }
+			
+			    .dropdown.active .dropdown-content {
+			      display: block; /* Show dropdown content when dropdown is active (clicked) */
+			    }
+			  }
 
 		  </style>
 	</head>
@@ -149,7 +158,7 @@
 										<!--<span class="icon solid major style1 fa-code"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="button">Programming Languages</div>
+												<div class="dropbtn">Programming Languages</div>
 												<div class="dropdown-content">
 													<div href="#">
 													<img src="images/logos/python.jpeg">
@@ -176,7 +185,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="button">Data Handling Libraries</div>
+												<div class="dropbtn">Data Handling Libraries</div>
 												<div class="dropdown-content">
 												  <div href="#">
 													<img src="images/logos/numpy.png">
@@ -215,7 +224,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="button">Big Data Technologies</div>
+												<div class="dropbtn">Big Data Technologies</div>
 												<div class="dropdown-content">
 													<div href="#">
 														<img src="images/logos/mongoDB.png">
@@ -258,7 +267,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="button">Statistical Techniques</div>
+												<div class="dropbtn">Statistical Techniques</div>
 												<div class="dropdown-content">
 												  <div href="#">
 													<!--<img src="/Users/akashborigi/Downloads/Resume/akashborigi/images/logos/Python_logo_PNG1.png" alt="Python Logo"> -->Decision Tree
@@ -290,7 +299,7 @@
 										<!--<span class="icon solid major style1 fa-code"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="button">Analysis & Visualization</div>
+												<div class="dropbtn">Analysis & Visualization</div>
 													<div class="dropdown-content">
 													<div href="#">
 													<img src="images/logos/tableau.jpeg">
@@ -317,7 +326,7 @@
 										<!--<span class="icon major style3 fa-copy"></span>-->
 										<div>
 											<div class="dropdown">
-												<div class="button">Domain Knowledge</div>
+												<div class="dropbtn">Domain Knowledge</div>
 												<div class="dropdown-content">
 												  <div href="#">
 													<!--<img src="/Users/akashborigi/Downloads/Resume/akashborigi/images/logos/Python_logo_PNG1.png" alt="Python Logo"> -->Drug Discovery
@@ -512,39 +521,41 @@ Data Networks and Protocols, Artificial Intelligence, Data Structures</p>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 		<script>
-				// Function to toggle dropdown menu visibility
-			function toggleDropdown() {
-			    var dropdownContent = document.querySelector('.dropdown-content');
-			    if (dropdownContent.style.display === 'block') {
-			        dropdownContent.style.display = 'none';
-			    } else {
-			        dropdownContent.style.display = 'block';
-			    }
-			}
-			
-			// Function to close dropdown menu on double click
-			function closeDropdown() {
-			    var dropdownContent = document.querySelector('.dropdown-content');
-			    dropdownContent.style.display = 'none';
-			}
-			
-			// Event listener for single click on dropdown button
-			document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);
-			
-			// Event listener for double click on dropdown button
-			var clicks = 0;
-			document.querySelector('.dropbtn').addEventListener('click', function() {
-			    clicks++;
-			    if (clicks === 2) {
-			        clicks = 0;
-			        closeDropdown();
-			    }
-			});
-			
-			// Event listener for touch-based devices
-			document.querySelector('.dropbtn').addEventListener('touchstart', toggleDropdown);
-			document.querySelector('.dropbtn').addEventListener('dblclick', closeDropdown);
-
+					// JavaScript for handling clicks on the dropdown for mobile
+		  const dropdowns = document.querySelectorAll('.dropdown');
+		
+		  dropdowns.forEach(dropdown => {
+		    dropdown.addEventListener('click', function() {
+		      // Toggle active class to show/hide dropdown content
+		      this.classList.toggle('active');
+		
+		      // Close other dropdowns
+		      dropdowns.forEach(item => {
+		        if (item !== this) {
+		          item.classList.remove('active');
+		        }
+		      });
+		    });
+		  });
+		
+		  // JavaScript for handling double tap to close dropdown for touch devices
+		  let lastTouchTime = 0;
+		
+		  document.addEventListener('touchend', function(event) {
+		    const currentTime = new Date().getTime();
+		    const tapLength = currentTime - lastTouchTime;
+		
+		    if (tapLength < 500 && tapLength > 0) {
+		      // If tap length is less than 500ms, treat it as a double tap
+		      const dropdowns = document.querySelectorAll('.dropdown');
+		
+		      dropdowns.forEach(dropdown => {
+		        dropdown.classList.remove('active');
+		      });
+		    }
+		
+		    lastTouchTime = currentTime;
+		  });
 		</script>
 
 	</body>
