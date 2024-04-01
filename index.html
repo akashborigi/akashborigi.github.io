@@ -38,9 +38,9 @@
 			/* Dropdown content */
 			.dropdown-content {
 			    display: none;
-			    position: absolute; /* Change to absolute */
+			    position: absolute;
 			    background-color: #ffffff;
-			    width: auto; /* Adjust min-width based on button size */
+			    width: auto;
 			    box-shadow: 0px 8px 16px 0px rgba(154, 77, 155, 0.766);
 			    z-index: 1;
 			}
@@ -69,28 +69,16 @@
 			    display: block;
 			}
 			
-			/* Media queries for responsiveness */
-			@media only screen and (max-width: 768px) {
-			    .dropdown {
-			        position: static; /* Reset position for mobile */
-			    }
+			/* Media queries for tablet and mobile responsiveness */
+			@media only screen and (max-width: 1024px) {
 			    .dropdown-content {
-			        position: static; /* Reset position for mobile */
-			        display: none; /* Hide by default */
-			        width: auto; /* Adjust width for mobile */
-			        min-width: unset; /* Reset min-width */
-			    }
-			    .dropdown-content div {
-			        border-bottom: none; /* Remove border bottom for mobile */
-			    }
-			    .dropdown:hover .dropdown-content,
-			    .dropdown:focus-within .dropdown-content,
-			    .dropdown:focus .dropdown-content {
-			        display: block; /* Show on click for mobile */
+			        width: auto;
+			        min-width: unset;
+			        position: static;
+			        box-shadow: none;
+			        display: none;
 			    }
 			}
-
-
 
 		  </style>
 	</head>
@@ -526,6 +514,30 @@ Data Networks and Protocols, Artificial Intelligence, Data Structures</p>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<script>
+		// JavaScript for touch-based devices
+		document.addEventListener('DOMContentLoaded', function() {
+		    const dropdowns = document.querySelectorAll('.dropdown');
+		    
+		    dropdowns.forEach(dropdown => {
+		        dropdown.addEventListener('click', function() {
+		            this.querySelector('.dropdown-content').classList.toggle('show');
+		        });
+		    });
+		    
+		    window.onclick = function(event) {
+		        if (!event.target.matches('.dropbtn')) {
+		            const dropdowns = document.getElementsByClassName('dropdown-content');
+		            for (let i = 0; i < dropdowns.length; i++) {
+		                const dropdownContent = dropdowns[i];
+		                if (dropdownContent.classList.contains('show')) {
+		                    dropdownContent.classList.remove('show');
+		                }
+		            }
+		        }
+		    }
+		});
+		</script>
 
 	</body>
 </html>
