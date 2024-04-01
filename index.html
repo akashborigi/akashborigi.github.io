@@ -515,28 +515,45 @@ Data Networks and Protocols, Artificial Intelligence, Data Structures</p>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 		<script>
-		// JavaScript for touch-based devices
-		document.addEventListener('DOMContentLoaded', function() {
-		    const dropdowns = document.querySelectorAll('.dropdown');
-		    
-		    dropdowns.forEach(dropdown => {
-		        dropdown.addEventListener('click', function() {
-		            this.querySelector('.dropdown-content').classList.toggle('show');
-		        });
-		    });
-		    
-		    window.onclick = function(event) {
-		        if (!event.target.matches('.dropbtn')) {
-		            const dropdowns = document.getElementsByClassName('dropdown-content');
-		            for (let i = 0; i < dropdowns.length; i++) {
-		                const dropdownContent = dropdowns[i];
-		                if (dropdownContent.classList.contains('show')) {
-		                    dropdownContent.classList.remove('show');
-		                }
-		            }
+	// JavaScript for dropdown menu functionality
+		
+		// Function to toggle dropdown on click for desktop
+		function toggleDropdown() {
+		    var dropdownContent = this.nextElementSibling;
+		    dropdownContent.style.display === "block" ?
+		        dropdownContent.style.display = "none" :
+		        dropdownContent.style.display = "block";
+		}
+		
+		// Function to close dropdown on touch outside for mobile and tablet
+		function closeDropdownOnTouchOutside(event) {
+		    var dropdowns = document.getElementsByClassName('dropdown-content');
+		    for (var i = 0; i < dropdowns.length; i++) {
+		        var openDropdown = dropdowns[i];
+		        if (openDropdown.style.display === 'block' && !openDropdown.parentElement.contains(event.target)) {
+		            openDropdown.style.display = 'none';
 		        }
 		    }
-		});
+		}
+		
+		// Function to handle double click to close the dropdown for desktop
+		function closeDropdownOnDoubleClick() {
+		    var dropdownContent = this.nextElementSibling;
+		    if (dropdownContent.style.display === 'block') {
+		        dropdownContent.style.display = 'none';
+		    }
+		}
+		
+		// Attach event listeners for desktop
+		var dropdowns = document.getElementsByClassName("dropdown");
+		for (var i = 0; i < dropdowns.length; i++) {
+		    dropdowns[i].addEventListener("click", toggleDropdown);
+		    dropdowns[i].addEventListener("dblclick", closeDropdownOnDoubleClick);
+		}
+		
+		// Attach event listener for mobile and tablet to close dropdown on touch outside
+		document.addEventListener('touchstart', closeDropdownOnTouchOutside);
+
 		</script>
 
 	</body>
