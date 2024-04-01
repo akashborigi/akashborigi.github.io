@@ -512,44 +512,38 @@ Data Networks and Protocols, Artificial Intelligence, Data Structures</p>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 		<script>
-	// JavaScript for dropdown menu functionality
-		
-		// Function to toggle dropdown on click for desktop
-		function toggleDropdown() {
-		    var dropdownContent = this.nextElementSibling;
-		    dropdownContent.style.display === "block" ?
-		        dropdownContent.style.display = "none" :
-		        dropdownContent.style.display = "block";
-		}
-		
-		// Function to close dropdown on touch outside for mobile and tablet
-		function closeDropdownOnTouchOutside(event) {
-		    var dropdowns = document.getElementsByClassName('dropdown-content');
-		    for (var i = 0; i < dropdowns.length; i++) {
-		        var openDropdown = dropdowns[i];
-		        if (openDropdown.style.display === 'block' && !openDropdown.parentElement.contains(event.target)) {
-		            openDropdown.style.display = 'none';
-		        }
-		    }
-		}
-		
-		// Function to handle double click to close the dropdown for desktop
-		function closeDropdownOnDoubleClick() {
-		    var dropdownContent = this.nextElementSibling;
-		    if (dropdownContent.style.display === 'block') {
-		        dropdownContent.style.display = 'none';
-		    }
-		}
-		
-		// Attach event listeners for desktop
-		var dropdowns = document.getElementsByClassName("dropdown");
-		for (var i = 0; i < dropdowns.length; i++) {
-		    dropdowns[i].addEventListener("click", toggleDropdown);
-		    dropdowns[i].addEventListener("dblclick", closeDropdownOnDoubleClick);
-		}
-		
-		// Attach event listener for mobile and tablet to close dropdown on touch outside
-		document.addEventListener('touchstart', closeDropdownOnTouchOutside);
+				// Function to toggle dropdown menu visibility
+			function toggleDropdown() {
+			    var dropdownContent = document.querySelector('.dropdown-content');
+			    if (dropdownContent.style.display === 'block') {
+			        dropdownContent.style.display = 'none';
+			    } else {
+			        dropdownContent.style.display = 'block';
+			    }
+			}
+			
+			// Function to close dropdown menu on double click
+			function closeDropdown() {
+			    var dropdownContent = document.querySelector('.dropdown-content');
+			    dropdownContent.style.display = 'none';
+			}
+			
+			// Event listener for single click on dropdown button
+			document.querySelector('.dropbtn').addEventListener('click', toggleDropdown);
+			
+			// Event listener for double click on dropdown button
+			var clicks = 0;
+			document.querySelector('.dropbtn').addEventListener('click', function() {
+			    clicks++;
+			    if (clicks === 2) {
+			        clicks = 0;
+			        closeDropdown();
+			    }
+			});
+			
+			// Event listener for touch-based devices
+			document.querySelector('.dropbtn').addEventListener('touchstart', toggleDropdown);
+			document.querySelector('.dropbtn').addEventListener('dblclick', closeDropdown);
 
 		</script>
 
