@@ -17,66 +17,79 @@
 				font-family: Optima, sans-serif;
 			}			
 
-			/* Dropdown container */
 			.dropdown {
-			position: relative;
-			display: inline-block;
-			margin-right: 20px;
+			    position: relative;
+			    display: inline-block;
+			    margin-right: 20px;
 			}
-
+			
 			/* Dropdown button */
 			.dropbtn {
-			background-color: #efa8b0;
-			color: white;
-			padding: 10px 20px;
-			font-size: 18px;
-			min-width: 250px;
-			border: none;
-			cursor: pointer;
-			border-radius: 5px;
+			    background-color: #efa8b0;
+			    color: white;
+			    padding: 10px 20px;
+			    font-size: 18px;
+			    min-width: 250px;
+			    border: none;
+			    cursor: pointer;
+			    border-radius: 5px;
 			}
-
+			
 			/* Dropdown content */
 			.dropdown-content {
-			display: None;
-			position: relative;
-			background-color: #ffffff;
-			width: auto; /* Adjust min-width based on button size */
-			box-shadow: 0px 8px 16px 0px rgba(154, 77, 155, 0.766);
-			z-index: 1;
+			    display: none;
+			    position: absolute; /* Change to absolute */
+			    background-color: #ffffff;
+			    width: auto; /* Adjust min-width based on button size */
+			    box-shadow: 0px 8px 16px 0px rgba(154, 77, 155, 0.766);
+			    z-index: 1;
 			}
-
+			
 			/* Dropdown content links */
 			.dropdown-content div {
-			padding: 10px;
-			text-align: center;
-			border-bottom: 1px solid #ddd;
+			    padding: 10px;
+			    text-align: center;
+			    border-bottom: 1px solid #ddd;
 			}
-
+			
 			.dropdown-content div:last-child {
-			border-bottom: none;
+			    border-bottom: none;
 			}
-
+			
 			/* Image style */
 			.dropdown-content img {
-			width: 60px;
-			height: 60px;
-			border-radius: 10%;
+			    width: 60px;
+			    height: 60px;
+			    border-radius: 10%;
 			}
-
+			
 			/* Show dropdown content on hover and focus */
 			.dropdown:hover .dropdown-content,
 			.dropdown:focus-within .dropdown-content {
-			display: block;
+			    display: block;
 			}
-
+			
 			/* Media queries for responsiveness */
 			@media only screen and (max-width: 768px) {
-			.dropdown-content {
-				width: auto; /* Adjust width for mobile */
-				min-width: unset; /* Reset min-width */
+			    .dropdown {
+			        position: static; /* Reset position for mobile */
+			    }
+			    .dropdown-content {
+			        position: static; /* Reset position for mobile */
+			        display: none; /* Hide by default */
+			        width: auto; /* Adjust width for mobile */
+			        min-width: unset; /* Reset min-width */
+			    }
+			    .dropdown-content div {
+			        border-bottom: none; /* Remove border bottom for mobile */
+			    }
+			    .dropdown:hover .dropdown-content,
+			    .dropdown:focus-within .dropdown-content,
+			    .dropdown:focus .dropdown-content {
+			        display: block; /* Show on click for mobile */
+			    }
 			}
-			}
+
 
 
 		  </style>
