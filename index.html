@@ -12,47 +12,14 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+
+						#nav ul {
+			    display: none; /* Hide the navigation menu by default */
+			    /* Other styles... */
+			}
 			
-			/* CSS */
-			/* Adjustments for mobile */
-			@media screen and (max-width: 768px) {
-			    #nav {
-			        position: relative; /* Remove 'display: none;' to make it visible */
-			    }
-			
-			    #nav ul {
-			        display: flex;
-			        flex-direction: column;
-			        position: fixed;
-			        top: 0;
-			        left: 0;
-			        width: 100%;
-			        height: 100%;
-			        background: rgba(255, 255, 255, 0.9); /* Adjust background color as needed */
-			        padding: 80px 20px 20px;
-			        margin: 0;
-			        z-index: 1000;
-			        overflow-y: auto;
-			    }
-			
-			    #nav ul li {
-			        margin-bottom: 20px;
-			    }
-			
-			    #nav ul li:last-child {
-			        margin-bottom: 0;
-			    }
-			
-			    #nav ul li a {
-			        display: block;
-			        color: black; /* Adjust link color as needed */
-			        font-size: 1.5em; /* Adjust font size as needed */
-			        text-decoration: none;
-			    }
-			
-			    #nav .menu-toggle {
-			        display: none; /* Hide the hamburger menu icon on small screens */
-			    }
+			#nav ul.active {
+			    display: block; /* Show the navigation menu when active */
 			}
 
 			
@@ -149,15 +116,20 @@
 
 				<!-- Nav -->
 					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active" style="color: black;">ABOUT</a></li>
-							<li><a href="#first" style="color: black;">SKILLS</a></li>
-							<li><a href="#second" style="color: black;">BACKGROUND</a></li>
-							<li><a href="#cta" style="color: black;">EXPERIENCE</a></li>
-							<li><a href="#ABC1" style="color: black;">PROJECTS</a></li>
-							<li><a href="#ABC2" style="color: black;">OTHERS</a></li>
-						</ul>
+					    <ul>
+					        <li><a href="#intro" class="active" style="color: black;">ABOUT</a></li>
+					        <li><a href="#first" style="color: black;">SKILLS</a></li>
+					        <li><a href="#second" style="color: black;">BACKGROUND</a></li>
+					        <li><a href="#cta" style="color: black;">EXPERIENCE</a></li>
+					        <li><a href="#ABC1" style="color: black;">PROJECTS</a></li>
+					        <li><a href="#ABC2" style="color: black;">OTHERS</a></li>
+					    </ul>
+					    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					        <span class="screen-reader-text">Toggle navigation</span>
+					        <span class="hamburger"></span>
+					    </button>
 					</nav>
+
 
 				<!-- Main -->
 					<div id="main">
@@ -614,8 +586,16 @@ Data Networks and Protocols, Artificial Intelligence, Data Structures</p>
 		      });
 		    }
 		
-		    lastTouchTime = currentTime;
-		  });
+					// JavaScript for handling clicks on the dropdown for mobile
+		const menuToggle = document.querySelector('.menu-toggle');
+		const navMenu = document.querySelector('#nav ul');
+		
+		menuToggle.addEventListener('click', function() {
+		    navMenu.classList.toggle('active');
+		});
+
+
+
 		</script>
 
 	</body>
