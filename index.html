@@ -13,6 +13,77 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 
+						/* CSS */
+			/* Add this CSS for hamburger menu */
+			.menu-toggle {
+			    display: none;
+			}
+			
+			.menu-toggle input {
+			    display: none;
+			}
+			
+			.menu-toggle span {
+			    background-color: black;
+			    display: block;
+			    height: 3px;
+			    margin: 5px 0;
+			    transition: transform 0.4s ease;
+			    width: 25px;
+			}
+			
+			.menu-toggle input:checked + span:nth-child(2) {
+			    transform: translateY(6px) rotate(45deg);
+			}
+			
+			.menu-toggle input:checked + span:nth-child(3) {
+			    opacity: 0;
+			}
+			
+			.menu-toggle input:checked + span:nth-child(4) {
+			    transform: translateY(-6px) rotate(-45deg);
+			}
+			
+			.menu-toggle ul {
+			    display: none;
+			    flex-direction: column;
+			    list-style: none;
+			    margin: 0;
+			    padding: 0;
+			}
+			
+			.menu-toggle ul li {
+			    margin-bottom: 10px;
+			}
+			
+			/* Adjustments for mobile */
+			@media screen and (max-width: 768px) {
+			    #nav {
+			        display: none;
+			    }
+			
+			    .menu-toggle {
+			        display: block;
+			    }
+			
+			    .menu-toggle ul {
+			        display: flex;
+			        position: fixed;
+			        top: 0;
+			        left: 0;
+			        background: white;
+			        width: 100%;
+			        height: 100%;
+			        padding: 80px 20px 20px;
+			        z-index: 1000;
+			    }
+			
+			    .menu-toggle ul li {
+			        margin-bottom: 20px;
+			    }
+			}
+
+			
 			body {
 				font-family: Optima, sans-serif;
 			}		
@@ -105,16 +176,23 @@
 					</header>
 
 				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active" style="color: black;">ABOUT</a></li>
-							<li><a href="#first" style="color: black;">SKILLS</a></li>
-							<li><a href="#second" style="color: black;">BACKGROUND</a></li>
-							<li><a href="#cta" style="color: black;">EXPERIENCE</a></li>
-							<li><a href="#ABC1" style="color: black;">PROJECTS</a></li>
-							<li><a href="#ABC2" style="color: black;">OTHERS</a></li>
-						</ul>
-					</nav>
+							<nav id="nav">
+							    <div class="menu-toggle">
+							        <input type="checkbox" />
+							        <span></span>
+							        <span></span>
+							        <span></span>
+							        <ul>
+							            <li><a href="#intro">ABOUT</a></li>
+							            <li><a href="#first">SKILLS</a></li>
+							            <li><a href="#second">BACKGROUND</a></li>
+							            <li><a href="#cta">EXPERIENCE</a></li>
+							            <li><a href="#ABC1">PROJECTS</a></li>
+							            <li><a href="#ABC2">OTHERS</a></li>
+							        </ul>
+							    </div>
+							</nav>
+
 
 				<!-- Main -->
 					<div id="main">
