@@ -13,58 +13,6 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 
-			.menu-toggle {
-			    display: none; /* Hide by default on desktop */
-			}
-			
-			.hamburger {
-			    width: 30px;
-			    height: 3px;
-			    background-color: black;
-			    margin: 6px 0;
-			    transition: 0.4s;
-			}
-			
-			/* Rotate first bar */
-			.hamburger::before {
-			    content: '';
-			    position: absolute;
-			    width: 30px;
-			    height: 3px;
-			    background-color: black;
-			    margin-top: -8px;
-			    transition: 0.4s;
-			}
-			
-			/* Rotate last bar */
-			.hamburger::after {
-			    content: '';
-			    position: absolute;
-			    width: 30px;
-			    height: 3px;
-			    background-color: black;
-			    margin-top: 8px;
-			    transition: 0.4s;
-			}
-			
-			/* Rotate bars on active */
-			.menu-toggle.active .hamburger {
-			    transform: rotate(-45deg);
-			}
-			
-			.menu-toggle.active .hamburger::before {
-			    transform: rotate(-90deg) translate(-5px, 7px);
-			}
-			
-			.menu-toggle.active .hamburger::after {
-			    transform: rotate(90deg) translate(-5px, -7px);
-			}
-			
-			/* Show the navigation menu when active */
-			#nav ul.active {
-			    display: block;
-			}
-
 			
 			body {
 				font-family: Optima, sans-serif;
@@ -158,22 +106,16 @@
 					</header>
 
 				<!-- Nav -->
-					<!-- Nav -->
-				<nav id="nav">
-				    <ul>
-				        <li><a href="#intro" class="active" style="color: black;">ABOUT</a></li>
-				        <li><a href="#first" style="color: black;">SKILLS</a></li>
-				        <li><a href="#second" style="color: black;">BACKGROUND</a></li>
-				        <li><a href="#cta" style="color: black;">EXPERIENCE</a></li>
-				        <li><a href="#ABC1" style="color: black;">PROJECTS</a></li>
-				        <li><a href="#ABC2" style="color: black;">OTHERS</a></li>
-				    </ul>
-				    <div class="menu-toggle">
-				        <div class="hamburger"></div>
-				    </div>
-				</nav>
-
-
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active" style="color: black;">ABOUT</a></li>
+							<li><a href="#first" style="color: black;">SKILLS</a></li>
+							<li><a href="#second" style="color: black;">BACKGROUND</a></li>
+							<li><a href="#cta" style="color: black;">EXPERIENCE</a></li>
+							<li><a href="#ABC1" style="color: black;">PROJECTS</a></li>
+							<li><a href="#ABC2" style="color: black;">OTHERS</a></li>
+						</ul>
+					</nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -630,18 +572,8 @@ Data Networks and Protocols, Artificial Intelligence, Data Structures</p>
 		      });
 		    }
 		
-					// JavaScript for handling clicks on the menu toggle for mobile
-			const menuToggle = document.querySelector('.menu-toggle');
-			const navMenu = document.querySelector('#nav ul');
-			
-			menuToggle.addEventListener('click', function() {
-			    navMenu.classList.toggle('active');
-			    this.classList.toggle('active');
-			});
-
-
-
-
+		    lastTouchTime = currentTime;
+		  });
 		</script>
 
 	</body>
