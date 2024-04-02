@@ -12,6 +12,50 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			
+			/* CSS */
+			/* Adjustments for mobile */
+			@media screen and (max-width: 768px) {
+			    #nav {
+			        position: relative; /* Remove 'display: none;' to make it visible */
+			    }
+			
+			    #nav ul {
+			        display: flex;
+			        flex-direction: column;
+			        position: fixed;
+			        top: 0;
+			        left: 0;
+			        width: 100%;
+			        height: 100%;
+			        background: rgba(255, 255, 255, 0.9); /* Adjust background color as needed */
+			        padding: 80px 20px 20px;
+			        margin: 0;
+			        z-index: 1000;
+			        overflow-y: auto;
+			    }
+			
+			    #nav ul li {
+			        margin-bottom: 20px;
+			    }
+			
+			    #nav ul li:last-child {
+			        margin-bottom: 0;
+			    }
+			
+			    #nav ul li a {
+			        display: block;
+			        color: black; /* Adjust link color as needed */
+			        font-size: 1.5em; /* Adjust font size as needed */
+			        text-decoration: none;
+			    }
+			
+			    #nav .menu-toggle {
+			        display: none; /* Hide the hamburger menu icon on small screens */
+			    }
+			}
+
+			
 			body {
 				font-family: Optima, sans-serif;
 			}		
