@@ -715,15 +715,14 @@ body.dark-mode .publication-card {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .metric-card {
   text-align: center;
-  padding: 2rem;
+  padding: 1.75rem 1rem;
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
   border-radius: 12px;
   border: 1px solid var(--border-light);
@@ -735,15 +734,15 @@ body.dark-mode .metric-card {
 }
 
 .metric-number {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 800;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.1;
+  line-height: 1;
   margin-bottom: 0.5rem;
-  word-break: break-word;
+  white-space: nowrap;
 }
 
 .metric-label {
@@ -874,8 +873,8 @@ body.dark-mode .footer-text {
   }
 
   .metrics-grid {
-    grid-template-columns: 1fr;
-    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .footer-bottom {
