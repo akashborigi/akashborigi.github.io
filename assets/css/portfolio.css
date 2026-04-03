@@ -715,8 +715,10 @@ body.dark-mode .publication-card {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .metric-card {
@@ -733,14 +735,15 @@ body.dark-mode .metric-card {
 }
 
 .metric-number {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 800;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
+  word-break: break-word;
 }
 
 .metric-label {
@@ -868,6 +871,11 @@ body.dark-mode .footer-text {
   .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
   .footer-bottom {
