@@ -718,8 +718,8 @@ body.dark-mode .publication-card {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 0;
 }
 
 .metric-card {
@@ -1012,6 +1012,7 @@ body.dark-mode .footer-text {
     max-width: 100%;
   }
 
+
   .metric-card {
     padding: 1.5rem 1rem;
   }
@@ -1302,6 +1303,7 @@ body.dark-mode .footer-text {
     max-width: 100%;
     margin: 0;
   }
+
 
   .metric-card {
     padding: 1.25rem 0.75rem;

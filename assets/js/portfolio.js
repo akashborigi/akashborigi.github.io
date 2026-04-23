@@ -94,12 +94,14 @@ document.querySelectorAll('.card, .publication-card, .timeline-item').forEach(el
 const animateMetrics = () => {
   const metricCards = document.querySelectorAll('.metric-number');
   metricCards.forEach(card => {
-    const finalValue = card.textContent;
+    // Store original text once so animation never corrupts it
+    if (!card.dataset.original) {
+      card.dataset.original = card.textContent.trim();
+    }
     const isAnimated = card.dataset.animated === 'true';
-
     if (!isAnimated && isInViewport(card)) {
       card.dataset.animated = 'true';
-      animateValue(card, 0, parseFloat(finalValue), 2000);
+      animateValue(card, 2000);
     }
   });
 };
@@ -114,26 +116,44 @@ function isInViewport(element) {
   );
 }
 
-function animateValue(element, start, end, duration) {
+function animateValue(element, duration) {
+  const original = element.dataset.original;
   let startTimestamp = null;
+
+  const isCross   = original.includes('×');
+  const isPercent = original.includes('%');
+  const isR2      = original.includes('R²');
+
+  let targetA, targetB, decimals;
+  if (isCross) {
+    const parts = original.split('×');
+    targetA = parseFloat(parts[0]);
+    targetB = parseFloat(parts[1]);
+  } else if (isPercent) {
+    targetA = parseFloat(original);
+    decimals = ((original.match(/\.(\d+)%/) || [, ''])[1] || '').length;
+  } else {
+    targetA = parseFloat(original);
+  }
+
   const step = (timestamp) => {
     if (!startTimestamp) startTimestamp = timestamp;
     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    const value = Math.floor(progress * (end - start) + start);
-    
-    // Format based on original value
-    if (element.textContent.includes('%')) {
-      element.textContent = value + '%';
-    } else if (element.textContent.includes('×')) {
-      element.textContent = value + ' ×';
-    } else if (element.textContent.includes('R²')) {
-      element.textContent = value + ' R²';
+
+    if (isCross) {
+      element.textContent = Math.floor(progress * targetA) + '×' + Math.floor(progress * targetB);
+    } else if (isPercent) {
+      element.textContent = (progress * targetA).toFixed(decimals) + '%';
+    } else if (isR2) {
+      element.textContent = Math.floor(progress * targetA) + '%';
     } else {
-      element.textContent = value;
+      element.textContent = Math.floor(progress * targetA);
     }
 
     if (progress < 1) {
       requestAnimationFrame(step);
+    } else {
+      element.textContent = original; // restore exact original at end
     }
   };
   requestAnimationFrame(step);
