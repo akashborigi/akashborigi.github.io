@@ -736,7 +736,7 @@ body.dark-mode .metric-card {
 }
 
 .metric-number {
-  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-size: clamp(1rem, 2.4vw, 1.6rem);
   font-weight: 800;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
@@ -744,9 +744,7 @@ body.dark-mode .metric-card {
   background-clip: text;
   line-height: 1.2;
   margin-bottom: 0.5rem;
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  white-space: nowrap;
 }
 
 .metric-label {
@@ -1019,7 +1017,7 @@ body.dark-mode .footer-text {
   }
 
   .metric-number {
-    font-size: 1.75rem;
+    font-size: 1.4rem;
   }
 
   .metric-label {
@@ -1310,7 +1308,7 @@ body.dark-mode .footer-text {
   }
 
   .metric-number {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .metric-label {
